@@ -1278,5 +1278,130 @@ namespace Mediatek86.vue
 
         #endregion
 
+        #region Commande Livres
+        //-----------------------------------------------------------
+        // ONGLET "COMMANDES LIVRES"
+        //-----------------------------------------------------------
+
+        /// <summary>
+        /// Ouverture de l'onglet Commande Livres
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tabCommandeLivres_Enter(object sender, EventArgs e)
+        {
+            lesLivres = controle.GetAllLivres();
+            AccesGestionCommandeLivres(false);
+            txbCommandeLivresNumero.Text = "";
+            VideCommandeLivresInfos();
+        }
+
+        /// <summary>
+        /// Recherche d'un livre à partir du numéro et affichage les informations
+        /// </summary>
+        private void CommandeLivresRechercher()
+        {
+            if (!txbCommandeLivresNumero.Text.Equals(""))
+            {
+                Livre livre = lesLivres.Find(x => x.Id.Equals(txbCommandeLivresNumero.Text.Trim()));
+                if (livre != null)
+                {
+                    AfficheCommandeLivresInfos(livre);
+                }
+                else
+                {
+                    MessageBox.Show("Numéro introuvable");
+                    txbCommandeLivresNumero.Text = "";
+                    txbCommandeLivresNumero.Focus();
+                    VideCommandeLivresInfos();
+                }
+            }
+            else
+            {
+                VideCommandeLivresInfos();
+            }
+        }
+
+        /// <summary>
+        /// Evénement clic sur le bouton de recherche de livre
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCommandeLivresRechercher_Click(object sender, EventArgs e)
+        {
+            CommandeLivresRechercher();
+        }
+
+        /// <summary>
+        /// Evénement sur la touche entrer déclenche la recherche
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txbCommandeLivresNumero_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnCommandeLivresRechercher_Click(sender, e);
+            }
+        }
+
+        /// <summary>
+        /// Affichage les informations du livre
+        /// </summary>
+        /// <param name="livre">Le livre sélectionné</param>
+        private void AfficheCommandeLivresInfos(Livre livre)
+        {
+            txbCommandeLivresTitre.Text = livre.Titre;
+            txbCommandeLivresAuteur.Text = livre.Auteur;
+            txbCommandeLivresCollection.Text = livre.Collection;
+            txbCommandeLivresGenre.Text = livre.Genre;
+            txbCommandeLivresPublic.Text = livre.Public;
+            txbCommandeLivresRayon.Text = livre.Rayon;
+            txbCommandeLivresImage.Text = livre.Image;
+            txbCommandeLivresISBN.Text = livre.Isbn;
+            string image = livre.Image;
+            try
+            {
+                pcbCommandeLivresImage.Image = Image.FromFile(image);
+            }
+            catch
+            {
+                pcbCommandeLivresImage.Image = null;
+            }
+        }
+
+        /// <summary>
+        /// Vide les zones d'affchage des informations du livre
+        /// </summary>
+        private void VideCommandeLivresInfos()
+        {
+            txbCommandeLivresTitre.Text = "";
+            txbCommandeLivresAuteur.Text = "";
+            txbCommandeLivresCollection.Text = "";
+            txbCommandeLivresGenre.Text = "";
+            txbCommandeLivresPublic.Text = "";
+            txbCommandeLivresRayon.Text = "";
+            txbCommandeLivresImage.Text = "";
+            txbCommandeLivresISBN.Text = "";
+            pcbCommandeLivresImage.Image = null;
+        }
+
+        private void txbCommandeLivresNumero_TextChanged(object sender, EventArgs e)
+        {
+            AccesGestionCommandeLivres(false);
+            VideCommandeLivresInfos();
+        }
+
+        /// <summary>
+        /// Active/Désactive la zone de gestion des commandes
+        /// </summary>
+        /// <param name="acces">true autorise l'accès</param>
+        private void AccesGestionCommandeLivres(bool acces)
+        {
+            grpGestionCommandeLivres.Enabled = acces;
+        }
+
+        #endregion
     }
 }
