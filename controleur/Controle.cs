@@ -103,6 +103,16 @@ namespace Mediatek86.controleur
             return Dao.CreerExemplaire(exemplaire);
         }
 
+        /// <summary>
+        /// Récupère les commandes d'un Livre/DVD
+        /// </summary>
+        /// <param name="idDocument">Identifiant du livre ou DVD concerné</param>
+        /// <returns>Collection d'objets de type CommandeDocument</returns>
+        public List<CommandeDocument> GetCommandeDocument(string idDocument)
+        {
+            return Dao.GetCommandeDocument(idDocument);
+        }
+
     }
 
 }
