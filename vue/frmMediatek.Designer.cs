@@ -185,8 +185,8 @@ namespace Mediatek86.vue
             this.btnCommandeLivresAjouter = new System.Windows.Forms.Button();
             this.btnCommandeLivresRelancer = new System.Windows.Forms.Button();
             this.grpCommandeLivres = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.nupCommandeLivresExemplaires = new System.Windows.Forms.NumericUpDown();
+            this.txbCommandeLivresMontant = new System.Windows.Forms.TextBox();
+            this.nudCommandeLivresExemplaires = new System.Windows.Forms.NumericUpDown();
             this.label57 = new System.Windows.Forms.Label();
             this.btnCommandeLivresAnnuler = new System.Windows.Forms.Button();
             this.btnCommandeLivresValider = new System.Windows.Forms.Button();
@@ -246,7 +246,7 @@ namespace Mediatek86.vue
             this.tabCommandeLivres.SuspendLayout();
             this.grpGestionCommandeLivres.SuspendLayout();
             this.grpCommandeLivres.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nupCommandeLivresExemplaires)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCommandeLivresExemplaires)).BeginInit();
             this.grpLivresCommande.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbCommandeLivresImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCommandeLivresListe)).BeginInit();
@@ -2051,6 +2051,7 @@ namespace Mediatek86.vue
             this.btnCommandeLivresAjouter.TabStop = false;
             this.btnCommandeLivresAjouter.Text = "Ajouter";
             this.btnCommandeLivresAjouter.UseVisualStyleBackColor = true;
+            this.btnCommandeLivresAjouter.Click += new System.EventHandler(this.btnCommandeLivresAjouter_Click);
             // 
             // btnCommandeLivresRelancer
             // 
@@ -2067,8 +2068,8 @@ namespace Mediatek86.vue
             // 
             // grpCommandeLivres
             // 
-            this.grpCommandeLivres.Controls.Add(this.textBox1);
-            this.grpCommandeLivres.Controls.Add(this.nupCommandeLivresExemplaires);
+            this.grpCommandeLivres.Controls.Add(this.txbCommandeLivresMontant);
+            this.grpCommandeLivres.Controls.Add(this.nudCommandeLivresExemplaires);
             this.grpCommandeLivres.Controls.Add(this.label57);
             this.grpCommandeLivres.Controls.Add(this.btnCommandeLivresAnnuler);
             this.grpCommandeLivres.Controls.Add(this.btnCommandeLivresValider);
@@ -2087,29 +2088,29 @@ namespace Mediatek86.vue
             this.grpCommandeLivres.TabStop = false;
             this.grpCommandeLivres.Text = "Détails commande";
             // 
-            // textBox1
+            // txbCommandeLivresMontant
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(766, 88);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(196, 31);
-            this.textBox1.TabIndex = 16;
+            this.txbCommandeLivresMontant.Enabled = false;
+            this.txbCommandeLivresMontant.Location = new System.Drawing.Point(766, 88);
+            this.txbCommandeLivresMontant.Margin = new System.Windows.Forms.Padding(6);
+            this.txbCommandeLivresMontant.Name = "txbCommandeLivresMontant";
+            this.txbCommandeLivresMontant.Size = new System.Drawing.Size(196, 31);
+            this.txbCommandeLivresMontant.TabIndex = 16;
             // 
-            // nupCommandeLivresExemplaires
+            // nudCommandeLivresExemplaires
             // 
-            this.nupCommandeLivresExemplaires.Enabled = false;
-            this.nupCommandeLivresExemplaires.Location = new System.Drawing.Point(766, 44);
-            this.nupCommandeLivresExemplaires.Margin = new System.Windows.Forms.Padding(6);
-            this.nupCommandeLivresExemplaires.Minimum = new decimal(new int[] {
+            this.nudCommandeLivresExemplaires.Enabled = false;
+            this.nudCommandeLivresExemplaires.Location = new System.Drawing.Point(766, 44);
+            this.nudCommandeLivresExemplaires.Margin = new System.Windows.Forms.Padding(6);
+            this.nudCommandeLivresExemplaires.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.nupCommandeLivresExemplaires.Name = "nupCommandeLivresExemplaires";
-            this.nupCommandeLivresExemplaires.Size = new System.Drawing.Size(200, 31);
-            this.nupCommandeLivresExemplaires.TabIndex = 14;
-            this.nupCommandeLivresExemplaires.Value = new decimal(new int[] {
+            this.nudCommandeLivresExemplaires.Name = "nudCommandeLivresExemplaires";
+            this.nudCommandeLivresExemplaires.Size = new System.Drawing.Size(200, 31);
+            this.nudCommandeLivresExemplaires.TabIndex = 14;
+            this.nudCommandeLivresExemplaires.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -2537,7 +2538,7 @@ namespace Mediatek86.vue
             this.grpGestionCommandeLivres.ResumeLayout(false);
             this.grpCommandeLivres.ResumeLayout(false);
             this.grpCommandeLivres.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nupCommandeLivresExemplaires)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCommandeLivresExemplaires)).EndInit();
             this.grpLivresCommande.ResumeLayout(false);
             this.grpLivresCommande.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbCommandeLivresImage)).EndInit();
@@ -2729,8 +2730,8 @@ namespace Mediatek86.vue
         private System.Windows.Forms.Button btnCommandeLivresAjouter;
         private System.Windows.Forms.Button btnCommandeLivresRelancer;
         private System.Windows.Forms.GroupBox grpCommandeLivres;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.NumericUpDown nupCommandeLivresExemplaires;
+        private System.Windows.Forms.TextBox txbCommandeLivresMontant;
+        private System.Windows.Forms.NumericUpDown nudCommandeLivresExemplaires;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Button btnCommandeLivresAnnuler;
         private System.Windows.Forms.Button btnCommandeLivresValider;

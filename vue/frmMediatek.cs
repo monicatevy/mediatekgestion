@@ -5,6 +5,7 @@ using Mediatek86.metier;
 using Mediatek86.controleur;
 using System.Drawing;
 using System.Linq;
+using System.Globalization;
 
 namespace Mediatek86.vue
 {
@@ -27,6 +28,8 @@ namespace Mediatek86.vue
         private List<Dvd> lesDvd = new List<Dvd>();
         private List<Revue> lesRevues = new List<Revue>();
         private List<Exemplaire> lesExemplaires = new List<Exemplaire>();
+        private List<CommandeDocument> lesCommandeDocument = new List<CommandeDocument>();
+        private readonly BindingSource bdgCommandesLivresListe = new BindingSource();
 
         #endregion
 
@@ -1294,6 +1297,7 @@ namespace Mediatek86.vue
             AccesGestionCommandeLivres(false);
             txbCommandeLivresNumero.Text = "";
             VideCommandeLivresInfos();
+            VideDetailsCommandeLivres();
         }
 
         /// <summary>
@@ -1323,6 +1327,72 @@ namespace Mediatek86.vue
         }
 
         /// <summary>
+        /// Affichage les informations du livre
+        /// </summary>
+        /// <param name="livre">Le livre sélectionné</param>
+        private void AfficheCommandeLivresInfos(Livre livre)
+        {
+            // affiche les informations
+            txbCommandeLivresTitre.Text = livre.Titre;
+            txbCommandeLivresAuteur.Text = livre.Auteur;
+            txbCommandeLivresCollection.Text = livre.Collection;
+            txbCommandeLivresGenre.Text = livre.Genre;
+            txbCommandeLivresPublic.Text = livre.Public;
+            txbCommandeLivresRayon.Text = livre.Rayon;
+            txbCommandeLivresImage.Text = livre.Image;
+            txbCommandeLivresISBN.Text = livre.Isbn;
+            string image = livre.Image;
+            try
+            {
+                pcbCommandeLivresImage.Image = Image.FromFile(image);
+            }
+            catch
+            {
+                pcbCommandeLivresImage.Image = null;
+            }
+            // affiche la liste des commandes
+            AfficheCommandeDocumentLivre();
+
+            // active la zone de gestion des commandes
+            AccesGestionCommandeLivres(true);
+        }
+
+        /// <summary>
+        /// Récupération et affichage de la liste des commandes d'un livre
+        /// </summary>
+        private void AfficheCommandeDocumentLivre()
+        {
+            string idDocument = txbCommandeLivresNumero.Text.Trim();
+            lesCommandeDocument = controle.GetCommandeDocument(idDocument);
+            RemplirCommandeLivresListe(lesCommandeDocument);
+        }
+
+        /// <summary>
+        /// Remplit le dategrid avec la collection reçue en paramètre
+        /// </summary>
+        /// <param name="lesCommandeDocument">Collection de CommandeDocument</param>
+        private void RemplirCommandeLivresListe(List<CommandeDocument> lesCommandeDocument)
+        {
+            bdgCommandesLivresListe.DataSource = lesCommandeDocument;
+            dgvCommandeLivresListe.DataSource = bdgCommandesLivresListe;
+            dgvCommandeLivresListe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvCommandeLivresListe.Columns["id"].Visible = false;
+            dgvCommandeLivresListe.Columns["idSuivi"].Visible = false;
+            dgvCommandeLivresListe.Columns["idLivreDvd"].Visible = false;
+            dgvCommandeLivresListe.Columns["dateCommande"].DisplayIndex = 0;
+            dgvCommandeLivresListe.Columns[5].HeaderCell.Value = "Date";
+            dgvCommandeLivresListe.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvCommandeLivresListe.Columns["montant"].DisplayIndex = 1;
+            dgvCommandeLivresListe.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvCommandeLivresListe.Columns[6].DefaultCellStyle.Format = "c2";
+            dgvCommandeLivresListe.Columns[6].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("fr-FR");
+            dgvCommandeLivresListe.Columns[0].HeaderCell.Value = "Exemplaires";
+            dgvCommandeLivresListe.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvCommandeLivresListe.Columns[2].HeaderCell.Value = "Etat";
+            dgvCommandeLivresListe.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        }
+
+        /// <summary>
         /// Evénement clic sur le bouton de recherche de livre
         /// </summary>
         /// <param name="sender"></param>
@@ -1347,32 +1417,18 @@ namespace Mediatek86.vue
         }
 
         /// <summary>
-        /// Affichage les informations du livre
+        /// Evénement clic sur le bouton d'ajout de commande
         /// </summary>
-        /// <param name="livre">Le livre sélectionné</param>
-        private void AfficheCommandeLivresInfos(Livre livre)
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCommandeLivresAjouter_Click(object sender, EventArgs e)
         {
-            txbCommandeLivresTitre.Text = livre.Titre;
-            txbCommandeLivresAuteur.Text = livre.Auteur;
-            txbCommandeLivresCollection.Text = livre.Collection;
-            txbCommandeLivresGenre.Text = livre.Genre;
-            txbCommandeLivresPublic.Text = livre.Public;
-            txbCommandeLivresRayon.Text = livre.Rayon;
-            txbCommandeLivresImage.Text = livre.Image;
-            txbCommandeLivresISBN.Text = livre.Isbn;
-            string image = livre.Image;
-            try
-            {
-                pcbCommandeLivresImage.Image = Image.FromFile(image);
-            }
-            catch
-            {
-                pcbCommandeLivresImage.Image = null;
-            }
+            AccesDetailsCommandeLivres(true);
+            AccesModificationCommandeLivres(true);
         }
 
         /// <summary>
-        /// Vide les zones d'affchage des informations du livre
+        /// Vide les zones d'affichage des informations du livre
         /// </summary>
         private void VideCommandeLivresInfos()
         {
@@ -1387,6 +1443,22 @@ namespace Mediatek86.vue
             pcbCommandeLivresImage.Image = null;
         }
 
+        /// <summary>
+        /// Vide les zones d'affichage des détails de commande
+        /// </summary>
+        private void VideDetailsCommandeLivres()
+        {
+            txbCommandeLivresNumeroCommande.Text = "";
+            dtpCommandeLivresDateCommande.Value = DateTime.Now;
+            nudCommandeLivresExemplaires.Value = 1;
+            txbCommandeLivresMontant.Text = "";
+        }
+
+        /// <summary>
+        /// Evénement sur la saisie du numéro du livre
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txbCommandeLivresNumero_TextChanged(object sender, EventArgs e)
         {
             AccesGestionCommandeLivres(false);
@@ -1394,12 +1466,41 @@ namespace Mediatek86.vue
         }
 
         /// <summary>
-        /// Active/Désactive la zone de gestion des commandes
+        /// Active/Désactive la zone de gestion des commandes et bouton ajouter
         /// </summary>
         /// <param name="acces">true autorise l'accès</param>
         private void AccesGestionCommandeLivres(bool acces)
         {
             grpGestionCommandeLivres.Enabled = acces;
+            btnCommandeLivresAjouter.Enabled = acces;
+        }
+
+        /// <summary>
+        /// Active/Désactive la zone détails d'une commande et les boutons (valider, annuler, ajouter)
+        /// </summary>
+        /// <param name="acces">True active les boutons Valider et Annuler, désactive le bouton Ajouter, dévérouille les champs</param>
+        private void AccesDetailsCommandeLivres(bool acces)
+        {
+            VideDetailsCommandeLivres();
+            grpCommandeLivres.Enabled = acces;
+            txbCommandeLivresNumeroCommande.Enabled = acces;
+            dtpCommandeLivresDateCommande.Enabled = acces;
+            nudCommandeLivresExemplaires.Enabled = acces;
+            txbCommandeLivresMontant.Enabled = acces;
+            btnCommandeLivresValider.Enabled = acces;
+            btnCommandeLivresAnnuler.Enabled = acces;
+            btnCommandeLivresAjouter.Enabled = !acces;
+        }
+
+        /// <summary>
+        /// Active/Désactive les boutons de gestion de commande (sauf ajout)
+        /// </summary>
+        private void AccesModificationCommandeLivres(bool acces)
+        {
+            btnCommandeLivresRelancer.Enabled = acces;
+            btnCommandeLivresConfirmerLivraison.Enabled = acces;
+            btnCommandeLivresRegler.Enabled = acces;
+            btnCommandeLivresSupprimer.Enabled = acces;
         }
 
         #endregion
