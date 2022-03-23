@@ -2307,6 +2307,7 @@ namespace Mediatek86.vue
             this.dgvCommandeLivresListe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCommandeLivresListe.Size = new System.Drawing.Size(782, 258);
             this.dgvCommandeLivresListe.TabIndex = 52;
+            this.dgvCommandeLivresListe.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCommandeLivresListe_ColumnHeaderMouseClick);
             // 
             // txbCommandeLivresImage
             // 
