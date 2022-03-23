@@ -1230,7 +1230,7 @@ namespace Mediatek86.vue
         }
 
         /// <summary>
-        /// Tri sur une colonne
+        /// Tri sur les colonnes
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -1417,6 +1417,44 @@ namespace Mediatek86.vue
         }
 
         /// <summary>
+        /// Evénement sur la saisie du numéro du livre
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txbCommandeLivresNumero_TextChanged(object sender, EventArgs e)
+        {
+            AccesGestionCommandeLivres(false);
+            VideCommandeLivresInfos();
+        }
+
+        /// <summary>
+        /// Tri sur les colonnes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgvCommandeLivresListe_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            string titreColonne = dgvCommandeLivresListe.Columns[e.ColumnIndex].HeaderText;
+            List<CommandeDocument> sortedList = new List<CommandeDocument>();
+            switch (titreColonne)
+            {
+                case "Date":
+                    sortedList = lesCommandeDocument.OrderBy(o => o.DateCommande).Reverse().ToList();
+                    break;
+                case "Montant":
+                    sortedList = lesCommandeDocument.OrderBy(o => o.Montant).Reverse().ToList();
+                    break;
+                case "Exemplaires":
+                    sortedList = lesCommandeDocument.OrderBy(o => o.NbExemplaires).Reverse().ToList();
+                    break;
+                case "Etat":
+                    sortedList = lesCommandeDocument.OrderBy(o => o.IdSuivi).ToList();
+                    break;
+            }
+            RemplirCommandeLivresListe(sortedList);
+        }
+
+        /// <summary>
         /// Evénement clic sur le bouton d'ajout de commande
         /// </summary>
         /// <param name="sender"></param>
@@ -1452,17 +1490,6 @@ namespace Mediatek86.vue
             dtpCommandeLivresDateCommande.Value = DateTime.Now;
             nudCommandeLivresExemplaires.Value = 1;
             txbCommandeLivresMontant.Text = "";
-        }
-
-        /// <summary>
-        /// Evénement sur la saisie du numéro du livre
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void txbCommandeLivresNumero_TextChanged(object sender, EventArgs e)
-        {
-            AccesGestionCommandeLivres(false);
-            VideCommandeLivresInfos();
         }
 
         /// <summary>
