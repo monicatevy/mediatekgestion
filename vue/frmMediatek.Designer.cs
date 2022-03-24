@@ -2012,6 +2012,7 @@ namespace Mediatek86.vue
             this.btnCommandeLivresRegler.TabStop = false;
             this.btnCommandeLivresRegler.Text = "Régler";
             this.btnCommandeLivresRegler.UseVisualStyleBackColor = true;
+            this.btnCommandeLivresRegler.Click += new System.EventHandler(this.btnCommandeLivresRegler_Click);
             // 
             // btnCommandeLivresConfirmerLivraison
             // 
@@ -2025,6 +2026,7 @@ namespace Mediatek86.vue
             this.btnCommandeLivresConfirmerLivraison.TabStop = false;
             this.btnCommandeLivresConfirmerLivraison.Text = "Confirmer Livraison";
             this.btnCommandeLivresConfirmerLivraison.UseVisualStyleBackColor = true;
+            this.btnCommandeLivresConfirmerLivraison.Click += new System.EventHandler(this.btnCommandeLivresConfirmerLivraison_Click);
             // 
             // btnCommandeLivresSupprimer
             // 
@@ -2066,6 +2068,7 @@ namespace Mediatek86.vue
             this.btnCommandeLivresRelancer.TabStop = false;
             this.btnCommandeLivresRelancer.Text = "Relancer";
             this.btnCommandeLivresRelancer.UseVisualStyleBackColor = true;
+            this.btnCommandeLivresRelancer.Click += new System.EventHandler(this.btnCommandeLivresRelancer_Click);
             // 
             // grpCommandeLivres
             // 
@@ -2139,6 +2142,7 @@ namespace Mediatek86.vue
             this.btnCommandeLivresAnnuler.TabIndex = 22;
             this.btnCommandeLivresAnnuler.Text = "Annuler";
             this.btnCommandeLivresAnnuler.UseVisualStyleBackColor = true;
+            this.btnCommandeLivresAnnuler.Click += new System.EventHandler(this.btnCommandeLivresAnnuler_Click);
             // 
             // btnCommandeLivresValider
             // 
@@ -2147,7 +2151,7 @@ namespace Mediatek86.vue
             this.btnCommandeLivresValider.Location = new System.Drawing.Point(1060, 43);
             this.btnCommandeLivresValider.Margin = new System.Windows.Forms.Padding(6);
             this.btnCommandeLivresValider.Name = "btnCommandeLivresValider";
-            this.btnCommandeLivresValider.Size = new System.Drawing.Size(308, 75);
+            this.btnCommandeLivresValider.Size = new System.Drawing.Size(308, 74);
             this.btnCommandeLivresValider.TabIndex = 20;
             this.btnCommandeLivresValider.Text = "Valider";
             this.btnCommandeLivresValider.UseVisualStyleBackColor = true;
@@ -2310,6 +2314,7 @@ namespace Mediatek86.vue
             this.dgvCommandeLivresListe.Size = new System.Drawing.Size(782, 258);
             this.dgvCommandeLivresListe.TabIndex = 52;
             this.dgvCommandeLivresListe.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCommandeLivresListe_ColumnHeaderMouseClick);
+            this.dgvCommandeLivresListe.SelectionChanged += new System.EventHandler(this.dgvCommandeLivresListe_SelectionChanged);
             // 
             // txbCommandeLivresImage
             // 
