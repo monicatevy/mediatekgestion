@@ -134,6 +134,16 @@ namespace Mediatek86.controleur
             return Dao.CreerCommandeDocument(commandeDocument);
         }
 
+        /// <summary>
+        /// Supprime une CommandeDocument de la bdd
+        /// </summary>
+        /// <param name="id">Identifiant de CommandeDocument à supprimer</param>
+        /// <returns>True si la suppression a pu se faire</returns>
+        public bool SupprCommandeDocument(string id)
+        {
+            return Dao.SupprCommandeDocument(id);
+        }
+
     }
 
 }

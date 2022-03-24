@@ -61,6 +61,15 @@ namespace Mediatek86.vue
             }
         }
 
+        /// <summary>
+        /// Affichage d'un MessageBox pour demander la confirmation de suppression d'une commande
+        /// </summary>
+        /// <returns>True si suppression confirmée</returns>
+        private bool ConfirmationSupprCommande()
+        {
+            return (MessageBox.Show("Etes-vous sûr de vouloir supprimer cette commande ?", "Confirmation de suppression", MessageBoxButtons.YesNo) == DialogResult.Yes);
+        }
+
         #endregion
 
 
@@ -1488,7 +1497,7 @@ namespace Mediatek86.vue
             string idLivreDvd = txbCommandeLivresNumero.Text.Trim();
             int idSuivi = lesSuivis[0].Id;
             string libelleSuivi = lesSuivis[0].Libelle;
-            String montantSaisie = txbCommandeLivresMontant.Text.Replace(',', '.');
+            String montantSaisie = txbCommandeLivresMontant.Text.Replace('.', ',');
 
             // validation du champ montant
             if (!Double.TryParse(montantSaisie, out double montant))
@@ -1508,6 +1517,27 @@ namespace Mediatek86.vue
                 MessageBox.Show("Ce numéro de commande existe déjà.", "Erreur");
                 txbCommandeLivresNumeroCommande.Text = "";
                 txbCommandeLivresNumeroCommande.Focus();
+            }
+        }
+
+        /// <summary>
+        /// Evénement clic sur le bouton supprimer une commande
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCommandeLivresSupprimer_Click(object sender, EventArgs e)
+        {
+            if (ConfirmationSupprCommande())
+            {
+                CommandeDocument commandeDocument = (CommandeDocument)bdgCommandesLivresListe.Current;
+                if (controle.SupprCommandeDocument(commandeDocument.Id))
+                {
+                    AfficheCommandeDocumentLivre();
+                }
+                else
+                {
+                    MessageBox.Show("Une erreur s'est produite.", "Erreur");
+                }
             }
         }
 
@@ -1576,8 +1606,35 @@ namespace Mediatek86.vue
             btnCommandeLivresSupprimer.Enabled = acces;
         }
 
-        #endregion
+        /// <summary>
+        /// Active/Désactive les boutons de gestion de commande en fonction de l'état de suivi
+        /// </summary>
+        /// <param name="commandeDocument">CommandeDocument concernée</param>
+        private void AccesBtnModificationCommandeLivres(CommandeDocument commandeDocument)
+        {
+            string etatSuivi = commandeDocument.LibelleSuivi;
+            switch (etatSuivi)
+            {
+                case "En cours":
+                case "Relancée":
+                    btnCommandeLivresRelancer.Enabled = true;
+                    btnCommandeLivresConfirmerLivraison.Enabled = true;
+                    btnCommandeLivresRegler.Enabled = false;
+                    btnCommandeLivresSupprimer.Enabled = true;
+                    break;
+                case "Livrée":
+                    btnCommandeLivresRelancer.Enabled = false;
+                    btnCommandeLivresConfirmerLivraison.Enabled = false;
+                    btnCommandeLivresRegler.Enabled = true;
+                    btnCommandeLivresSupprimer.Enabled = false;
+                    break;
+                case "Réglée":
+                    AccesModificationCommandeLivres(false);
+                    break;
+            }
+        }
 
-        
+
+        #endregion
     }
 }

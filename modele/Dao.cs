@@ -303,9 +303,12 @@ namespace Mediatek86.modele
         {
             try
             {
-                string req = "insert into commande values (@id, @dateCommande, @montant) ";
-                req += "insert into commandedocument values (@id, @nbExemplaire, @idLivreDvd) ";
-                req += "insert into suivicommandedocument values (@idSuivi, @id)";
+                List<string> requetes = new List<string>
+                {
+                    "insert into commande values (@id, @dateCommande, @montant) ",
+                    "insert into commandedocument values (@id, @nbExemplaire, @idLivreDvd) ",
+                    "insert into suivicommandedocument values (@idSuivi, @id)"
+                };
                 Dictionary<string, object> parameters = new Dictionary<string, object>
                 {
                     {"@id", commandeDocument.Id },
@@ -316,7 +319,37 @@ namespace Mediatek86.modele
                     {"@idSuivi", commandeDocument.IdSuivi },
                 };
                 BddMySql curs = BddMySql.GetInstance(connectionString);
-                curs.ReqUpdate(req, parameters);
+                curs.ReqUpdate(requetes, parameters);
+                curs.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Suppression d'une CommandeDocument de la bdd
+        /// </summary>
+        /// <param name="id">Identifiant de CommandeDocument à supprimer</param>
+        /// <returns>True si la suppression a pu se faire</returns>
+        public static bool SupprCommandeDocument(string id)
+        {
+            try
+            {
+                List<string> requetes = new List<string>
+                {
+                    "delete from suivicommandedocument where idcommande=@id",
+                    "delete from commandedocument where id=@id",
+                    "delete from commande where id=@id"
+                };
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    {"@id", id },
+                };
+                BddMySql curs = BddMySql.GetInstance(connectionString);
+                curs.ReqUpdate(requetes, parameters);
                 curs.Close();
                 return true;
             }
@@ -335,7 +368,10 @@ namespace Mediatek86.modele
         {
             try
             {
-                string req = "insert into exemplaire values (@idDocument,@numero,@dateAchat,@photo,@idEtat)";
+                List<string> requete = new List<string>
+                {
+                    "insert into exemplaire values (@idDocument,@numero,@dateAchat,@photo,@idEtat)"
+                };
                 Dictionary<string, object> parameters = new Dictionary<string, object>
                 {
                     { "@idDocument", exemplaire.IdDocument},
@@ -345,7 +381,7 @@ namespace Mediatek86.modele
                     { "@idEtat",exemplaire.IdEtat}
                 };
                 BddMySql curs = BddMySql.GetInstance(connectionString);
-                curs.ReqUpdate(req, parameters);
+                curs.ReqUpdate(requete, parameters);
                 curs.Close();
                 return true;
             }catch{

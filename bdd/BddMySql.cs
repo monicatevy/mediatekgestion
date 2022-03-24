@@ -126,29 +126,35 @@ namespace Mediatek86.bdd
         }
 
         /// <summary>
-        /// Exécution d'une requête autre que "select"
+        /// Exécution de requêtes autre que "select" dans une seule transaction
         /// </summary>
-        /// <param name="stringQuery">requête autre que select</param>
-        /// <param name="parameters">dictionnire contenant les parametres</param>
-        public void ReqUpdate(string stringQuery, Dictionary<string, object> parameters)
+        /// <param name="queries">Liste des requêtes à effectuer</param>
+        /// <param name="parameters">Paramètres à insérer dans les requêtes</param>
+        public void ReqUpdate(List<string> queries, Dictionary<string, object> parameters)
         {
             MySqlCommand command;
+            MySqlTransaction transaction = connection.BeginTransaction();
             try
             {
-                command = new MySqlCommand(stringQuery, connection);
-                if (!(parameters is null))
+                foreach (string stringQuery in queries)
                 {
-                    foreach (KeyValuePair<string, object> parameter in parameters)
+                    command = new MySqlCommand(stringQuery, connection, transaction);
+                    if (!(parameters is null))
                     {
-                        command.Parameters.Add(new MySqlParameter(parameter.Key, parameter.Value));
+                        foreach (KeyValuePair<string, object> parameter in parameters)
+                        {
+                            command.Parameters.Add(new MySqlParameter(parameter.Key, parameter.Value));
+                        }
                     }
+                    command.Prepare();
+                    command.ExecuteNonQuery();
                 }
-                command.Prepare();
-                command.ExecuteNonQuery();
+
+                transaction.Commit();
             }
-            catch (MySqlException e)
+            catch (MySqlException)
             {
-                Console.WriteLine(e.Message);
+                transaction.Rollback();
                 throw;
             }
             catch (InvalidOperationException e)
