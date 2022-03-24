@@ -14,6 +14,7 @@ namespace Mediatek86.controleur
         private readonly List<Categorie> lesRayons;
         private readonly List<Categorie> lesPublics;
         private readonly List<Categorie> lesGenres;
+        private readonly List<Suivi> lesSuivis;
 
         /// <summary>
         /// Ouverture de la fenêtre
@@ -26,6 +27,7 @@ namespace Mediatek86.controleur
             lesGenres = Dao.GetAllGenres();
             lesRayons = Dao.GetAllRayons();
             lesPublics = Dao.GetAllPublics();
+            lesSuivis = Dao.GetAllSuivis();
             FrmMediatek frmMediatek = new FrmMediatek(this);
             frmMediatek.ShowDialog();
         }
@@ -85,6 +87,15 @@ namespace Mediatek86.controleur
         }
 
         /// <summary>
+        /// getter sur les suivis
+        /// </summary>
+        /// <returns>Collection d'objets Suivi</returns>
+        public List<Suivi> GetAllSuivis()
+        {
+            return lesSuivis;
+        }
+
+        /// <summary>
         /// récupère les exemplaires d'une revue
         /// </summary>
         /// <returns>Collection d'objets Exemplaire</returns>
@@ -111,6 +122,16 @@ namespace Mediatek86.controleur
         public List<CommandeDocument> GetCommandeDocument(string idDocument)
         {
             return Dao.GetCommandeDocument(idDocument);
+        }
+
+        /// <summary>
+        /// Crée une CommandeDocument dans la bdd
+        /// </summary>
+        /// <param name="commandeDocument">L'objet CommandeDocument concerné</param>
+        /// <returns>Le message de confirmation ou d'erreur</returns>
+        public bool CreerCommandeDocument(CommandeDocument commandeDocument)
+        {
+            return Dao.CreerCommandeDocument(commandeDocument);
         }
 
     }
