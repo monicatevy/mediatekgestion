@@ -1652,7 +1652,12 @@ namespace Mediatek86.vue
         /// <param name="e"></param>
         private void btnCommandeLivresConfirmerLivraison_Click(object sender, EventArgs e)
         {
-
+            CommandeDocument commandeDocument = (CommandeDocument)bdgCommandesLivresListe.List[bdgCommandesLivresListe.Position];
+            Suivi nouveauSuivi = lesSuivis.Find(suivi => suivi.Libelle == "livrée");
+            if (ModifEtatSuiviCommandeDocumentLivre(commandeDocument.Id, nouveauSuivi))
+            {
+                MessageBox.Show("Les exemplaires ont été ajoutés dans la base de données.", "Information");
+            }
         }
 
         /// <summary>
