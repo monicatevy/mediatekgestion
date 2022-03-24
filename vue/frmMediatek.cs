@@ -16,6 +16,7 @@ namespace Mediatek86.vue
 
         private readonly Controle controle;
         const string ETATNEUF = "00001";
+        
 
         private readonly BindingSource bdgLivresListe = new BindingSource();
         private readonly BindingSource bdgDvdListe = new BindingSource();
@@ -24,12 +25,13 @@ namespace Mediatek86.vue
         private readonly BindingSource bdgRayons = new BindingSource();
         private readonly BindingSource bdgRevuesListe = new BindingSource();
         private readonly BindingSource bdgExemplairesListe = new BindingSource();
+        private readonly BindingSource bdgCommandesLivresListe = new BindingSource();
         private List<Livre> lesLivres = new List<Livre>();
         private List<Dvd> lesDvd = new List<Dvd>();
         private List<Revue> lesRevues = new List<Revue>();
         private List<Exemplaire> lesExemplaires = new List<Exemplaire>();
         private List<CommandeDocument> lesCommandeDocument = new List<CommandeDocument>();
-        private readonly BindingSource bdgCommandesLivresListe = new BindingSource();
+        private List<Suivi> lesSuivis = new List<Suivi>();
 
         #endregion
 
@@ -1294,6 +1296,7 @@ namespace Mediatek86.vue
         private void tabCommandeLivres_Enter(object sender, EventArgs e)
         {
             lesLivres = controle.GetAllLivres();
+            lesSuivis = controle.GetAllSuivis();
             AccesGestionCommandeLivres(false);
             txbCommandeLivresNumero.Text = "";
             VideCommandeLivresInfos();
@@ -1466,6 +1469,49 @@ namespace Mediatek86.vue
         }
 
         /// <summary>
+        /// Evénement clic sur le bouton valider une commande
+        /// Enregistrement d'une commande à condition que tous les champs soient remplis et valides
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCommandeLivresValider_Click(object sender, EventArgs e)
+        {
+            if (txbCommandeLivresNumeroCommande.Text == "" || txbCommandeLivresMontant.Text == "")
+            {
+                MessageBox.Show("Veuillez remplir tous les champs.", "Information");
+                return;
+            }
+
+            String id = txbCommandeLivresNumeroCommande.Text;
+            DateTime dateCommande = dtpCommandeLivresDateCommande.Value;
+            int nbExemplaires = (int)nudCommandeLivresExemplaires.Value;
+            string idLivreDvd = txbCommandeLivresNumero.Text.Trim();
+            int idSuivi = lesSuivis[0].Id;
+            string libelleSuivi = lesSuivis[0].Libelle;
+            String montantSaisie = txbCommandeLivresMontant.Text.Replace(',', '.');
+
+            // validation du champ montant
+            if (!Double.TryParse(montantSaisie, out double montant))
+            {
+                MessageBox.Show("Le montant doit être numérique.", "Erreur");
+                txbCommandeLivresMontant.Text = "";
+                txbCommandeLivresMontant.Focus();
+                return;
+            }
+            CommandeDocument laCommandeDocument = new CommandeDocument(id, dateCommande, montant, nbExemplaires, idLivreDvd, idSuivi, libelleSuivi);
+            if (controle.CreerCommandeDocument(laCommandeDocument))
+            {
+                AfficheCommandeDocumentLivre();
+            }
+            else
+            {
+                MessageBox.Show("Ce numéro de commande existe déjà.", "Erreur");
+                txbCommandeLivresNumeroCommande.Text = "";
+                txbCommandeLivresNumeroCommande.Focus();
+            }
+        }
+
+        /// <summary>
         /// Vide les zones d'affichage des informations du livre
         /// </summary>
         private void VideCommandeLivresInfos()
@@ -1531,5 +1577,7 @@ namespace Mediatek86.vue
         }
 
         #endregion
+
+        
     }
 }

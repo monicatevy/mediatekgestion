@@ -2150,6 +2150,7 @@ namespace Mediatek86.vue
             this.btnCommandeLivresValider.TabIndex = 20;
             this.btnCommandeLivresValider.Text = "Valider";
             this.btnCommandeLivresValider.UseVisualStyleBackColor = true;
+            this.btnCommandeLivresValider.Click += new System.EventHandler(this.btnCommandeLivresValider_Click);
             // 
             // label72
             // 
