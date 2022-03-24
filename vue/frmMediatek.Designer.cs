@@ -2038,6 +2038,7 @@ namespace Mediatek86.vue
             this.btnCommandeLivresSupprimer.TabStop = false;
             this.btnCommandeLivresSupprimer.Text = "Supprimer";
             this.btnCommandeLivresSupprimer.UseVisualStyleBackColor = true;
+            this.btnCommandeLivresSupprimer.Click += new System.EventHandler(this.btnCommandeLivresSupprimer_Click);
             // 
             // btnCommandeLivresAjouter
             // 
