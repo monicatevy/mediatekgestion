@@ -144,6 +144,17 @@ namespace Mediatek86.controleur
             return Dao.SupprCommandeDocument(id);
         }
 
+        /// <summary>
+        /// Modifie l'état de suivi d'une CommandeDocument
+        /// </summary>
+        /// <param name="idCommandeDocument">Identifiant CommandeDocument à modifier</param>
+        /// <param name="idSuivi">Identifiant du nouvel état de suivi</param>
+        /// <returns>True si la modification a pu se faire</returns>
+        public bool ModifSuiviCommandeDocument(string idCommandeDocument, int idSuivi)
+        {
+            return Dao.ModifSuiviCommandeDocument(idCommandeDocument, idSuivi);
+        }
+
     }
 
 }
