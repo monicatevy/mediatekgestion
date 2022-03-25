@@ -2593,6 +2593,8 @@ namespace Mediatek86.vue
             this.btnCommandeDvdRegler.TabStop = false;
             this.btnCommandeDvdRegler.Text = "Régler";
             this.btnCommandeDvdRegler.UseVisualStyleBackColor = true;
+            this.btnCommandeDvdRegler.Click += new System.EventHandler(this.btnCommandeDvdRegler_Click);
+
             // 
             // btnCommandeDvdConfirmerLivraison
             // 
@@ -2606,6 +2608,7 @@ namespace Mediatek86.vue
             this.btnCommandeDvdConfirmerLivraison.TabStop = false;
             this.btnCommandeDvdConfirmerLivraison.Text = "Confirmer Livraison";
             this.btnCommandeDvdConfirmerLivraison.UseVisualStyleBackColor = true;
+            this.btnCommandeDvdConfirmerLivraison.Click += new System.EventHandler(this.btnCommandeDvdConfirmerLivraison_Click);
             // 
             // btnCommandeDvdSupprimer
             // 
@@ -2619,6 +2622,7 @@ namespace Mediatek86.vue
             this.btnCommandeDvdSupprimer.TabStop = false;
             this.btnCommandeDvdSupprimer.Text = "Supprimer";
             this.btnCommandeDvdSupprimer.UseVisualStyleBackColor = true;
+            this.btnCommandeDvdSupprimer.Click += new System.EventHandler(this.btnCommandeDvdSupprimer_Click);
             // 
             // btnCommandeDvdAjouter
             // 
@@ -2632,6 +2636,7 @@ namespace Mediatek86.vue
             this.btnCommandeDvdAjouter.TabStop = false;
             this.btnCommandeDvdAjouter.Text = "Ajouter";
             this.btnCommandeDvdAjouter.UseVisualStyleBackColor = true;
+            this.btnCommandeDvdAjouter.Click += new System.EventHandler(this.btnCommandeDvdAjouter_Click);
             // 
             // btnCommandeDvdRelancer
             // 
@@ -2645,6 +2650,7 @@ namespace Mediatek86.vue
             this.btnCommandeDvdRelancer.TabStop = false;
             this.btnCommandeDvdRelancer.Text = "Relancer";
             this.btnCommandeDvdRelancer.UseVisualStyleBackColor = true;
+            this.btnCommandeDvdRelancer.Click += new System.EventHandler(this.btnCommandeDvdRelancer_Click);
             // 
             // grpCommandeDvd
             // 
@@ -2718,6 +2724,7 @@ namespace Mediatek86.vue
             this.btnCommandeDvdAnnuler.TabIndex = 22;
             this.btnCommandeDvdAnnuler.Text = "Annuler";
             this.btnCommandeDvdAnnuler.UseVisualStyleBackColor = true;
+            this.btnCommandeDvdAnnuler.Click += new System.EventHandler(this.btnCommandeDvdAnnuler_Click);
             // 
             // btnCommandeDvdValider
             // 
@@ -2730,6 +2737,7 @@ namespace Mediatek86.vue
             this.btnCommandeDvdValider.TabIndex = 20;
             this.btnCommandeDvdValider.Text = "Valider";
             this.btnCommandeDvdValider.UseVisualStyleBackColor = true;
+            this.btnCommandeDvdValider.Click += new System.EventHandler(this.btnCommandeDvdValider_Click);
             // 
             // label84
             // 
@@ -2887,6 +2895,8 @@ namespace Mediatek86.vue
             this.dgvCommandeDvdListe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCommandeDvdListe.Size = new System.Drawing.Size(782, 258);
             this.dgvCommandeDvdListe.TabIndex = 52;
+            this.dgvCommandeDvdListe.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCommandeDvdListe_ColumnHeaderMouseClick);
+            this.dgvCommandeDvdListe.SelectionChanged += new System.EventHandler(this.dgvCommandeDvdListe_SelectionChanged);
             // 
             // txbCommandeDvdImage
             // 
@@ -2958,6 +2968,7 @@ namespace Mediatek86.vue
             this.txbCommandeDvdNumero.Name = "txbCommandeDvdNumero";
             this.txbCommandeDvdNumero.Size = new System.Drawing.Size(196, 31);
             this.txbCommandeDvdNumero.TabIndex = 43;
+            this.txbCommandeDvdNumero.TextChanged += new System.EventHandler(this.txbCommandeDvdNumero_TextChanged);
             this.txbCommandeDvdNumero.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txbCommandeDvdNumero_KeyDown);
             // 
             // label74
