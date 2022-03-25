@@ -453,5 +453,38 @@ namespace Mediatek86.modele
             return lesAbonnements;
         }
 
+        /// <summary>
+        /// Ecriture d'un abonnement dans la base de données
+        /// </summary>
+        /// <param name="abonnement">Abonnement à ajouter</param>
+        /// <returns>true si l'insertion a pu se faire</returns>
+        public static bool CreerAbonnement(Abonnement abonnement)
+        {
+            try
+            {
+                List<string> requetes = new List<string>
+                {
+                    "insert into commande values (@id, @dateCommande, @montant) ",
+                    "insert into abonnement values (@id, @dateFinAbonnement, @idRevue) "
+                };
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    {"@id", abonnement.Id },
+                    {"@dateCommande", abonnement.DateCommande },
+                    {"@montant", abonnement.Montant },
+                    {"@dateFinAbonnement", abonnement.DateFinAbonnement },
+                    {"@idRevue", abonnement.IdRevue }
+                };
+                BddMySql curs = BddMySql.GetInstance(connectionString);
+                curs.ReqUpdate(requetes, parameters);
+                curs.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
     }
 }
