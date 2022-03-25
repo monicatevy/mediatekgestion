@@ -419,5 +419,39 @@ namespace Mediatek86.modele
             }
         }
 
+        /// <summary>
+        /// Retourne les abonnements à une revue à partir de la BDD
+        /// </summary>
+        /// <param name="idDocument">identifiant revue</param>
+        /// <returns>Liste d'objets CommandeDocument</returns>
+        public static List<Abonnement> GetAbonnement(string idDocument)
+        {
+            List<Abonnement> lesAbonnements = new List<Abonnement>();
+            string req = "Select c.id, c.dateCommande, c.montant, a.dateFinAbonnement, a.idRevue ";
+            req += "from commande c join abonnement a on c.id=a.id ";
+            req += "where a.idRevue = @id ";
+            req += "order by c.dateCommande DESC";
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    { "@id", idDocument}
+                };
+
+            BddMySql curs = BddMySql.GetInstance(connectionString);
+            curs.ReqSelect(req, parameters);
+
+            while (curs.Read())
+            {
+                string id = (string)curs.Field("id");
+                DateTime dateCommande = (DateTime)curs.Field("datecommande");
+                double montant = (double)curs.Field("montant");
+                DateTime dateFinAbonnement = (DateTime)curs.Field("dateFinAbonnement");
+                string idRevue = (string)curs.Field("idRevue");
+                Abonnement abonnement = new Abonnement(id, dateCommande, montant, dateFinAbonnement, idRevue);
+                lesAbonnements.Add(abonnement);
+            }
+            curs.Close();
+            return lesAbonnements;
+        }
+
     }
 }
