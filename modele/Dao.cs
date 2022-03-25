@@ -486,5 +486,34 @@ namespace Mediatek86.modele
             }
         }
 
+        /// <summary>
+        /// Suppression d'un abonnement de la base de données
+        /// </summary>
+        /// <param name="id">Identifiant abonnement à supprimer</param>
+        /// <returns>True si la suppression a pu se faire</returns>
+        public static bool SupprAbonnement(string id)
+        {
+            try
+            {
+                List<string> requetes = new List<string>
+                {
+                    "delete from abonnement where id=@id",
+                    "delete from commande where id=@id"
+                };
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    {"@id", id },
+                };
+                BddMySql curs = BddMySql.GetInstance(connectionString);
+                curs.ReqUpdate(requetes, parameters);
+                curs.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
     }
 }
