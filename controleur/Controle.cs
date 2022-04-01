@@ -5,6 +5,7 @@ using Mediatek86.vue;
 using System.Drawing;
 using System;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace Mediatek86.controleur
 {
@@ -30,8 +31,15 @@ namespace Mediatek86.controleur
             lesRayons = Dao.GetAllRayons();
             lesPublics = Dao.GetAllPublics();
             lesSuivis = Dao.GetAllSuivis();
-            FrmMediatek frmMediatek = new FrmMediatek(this);
-            frmMediatek.ShowDialog();
+            
+            FrmAuthentification authentification = new FrmAuthentification(this);
+            Application.Run(authentification);
+            if (authentification.onSuccessAuth)
+            {
+                FrmMediatek frmMediatek = new FrmMediatek(this);
+                Application.Run(frmMediatek);
+            }
+
         }
 
         /// <summary>
