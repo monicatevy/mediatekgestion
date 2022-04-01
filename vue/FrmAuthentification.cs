@@ -35,8 +35,29 @@ namespace Mediatek86.vue
         /// <param name="e"></param>
         private void btnConnexion_Click(object sender, EventArgs e)
         {
-            onSuccessAuth = true;
-            Close();
+            string login = txbLogin.Text.Trim();
+            string pwd = txbPwd.Text.Trim();
+            Service userService = controle.Authentification(login, pwd);
+
+            // Récupération du service si l'authentification est réussie
+            if (userService != null)
+            {
+                if (userService.Libelle == "culture")
+                {
+                    MessageBox.Show("Accès réservé aux services administratifs et au service de prêt.", "Information");
+                    VideChampsConnexion();
+                }
+                else
+                {
+                    onSuccessAuth = true;
+                    Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Identifiants de connexion incorrects.", "Erreur");
+                VideChampsConnexion();
+            }
         }
 
         /// <summary>
@@ -46,7 +67,20 @@ namespace Mediatek86.vue
         /// <param name="e"></param>
         private void txbPwd_KeyDown(object sender, KeyEventArgs e)
         {
-            btnConnexion_Click(sender, e);
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnConnexion_Click(sender, e);
+            }
+        }
+
+        /// <summary>
+        /// Vide les champs de connexion
+        /// </summary>
+        private void VideChampsConnexion()
+        {
+            txbLogin.Text = "";
+            txbPwd.Text = "";
+            txbLogin.Focus();
         }
     }
 }
