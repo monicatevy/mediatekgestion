@@ -38,23 +38,38 @@ namespace Mediatek86.vue
 
         #endregion
 
-
+        /// <summary>
+        /// Constructeur
+        /// Restriction des fonctionnalités si l'utilisateur est du service Prêt
+        /// </summary>
+        /// <param name="controle"></param>
         internal FrmMediatek(Controle controle)
         {
             InitializeComponent();
             this.controle = controle;
+
+            if (controle.userService.Libelle == "prêt")
+            {
+                tabOngletsApplication.TabPages.Remove(tabCommandeLivres);
+                tabOngletsApplication.TabPages.Remove(tabCommandeDVD);
+                tabOngletsApplication.TabPages.Remove(tabAbonnementRevues);
+                grpReceptionExemplaire.Visible = false;
+            }
         }
 
         /// <summary>
         /// Alerte au démarrage de l'application des abonnements qui expirent dans moins de 30 jours
+        /// n'apparaît pas si l'utilisateur est du service Prêt
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void FrmMediatek_Shown(object sender, EventArgs e)
         {
-            FrmAlerteAbonnements30 alerteAbonnements30 = new FrmAlerteAbonnements30(controle);
-            alerteAbonnements30.StartPosition = FormStartPosition.CenterParent;
-            alerteAbonnements30.ShowDialog();
+            if (controle.userService.Libelle != "prêt") {
+                FrmAlerteAbonnements30 alerteAbonnements30 = new FrmAlerteAbonnements30(controle);
+                alerteAbonnements30.StartPosition = FormStartPosition.CenterParent;
+                alerteAbonnements30.ShowDialog();
+            }
         }
 
 
