@@ -45,6 +45,18 @@ namespace Mediatek86.vue
             this.controle = controle;
         }
 
+        /// <summary>
+        /// Alerte au démarrage de l'application des abonnements qui expirent dans moins de 30 jours
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FrmMediatek_Shown(object sender, EventArgs e)
+        {
+            FrmAlerteAbonnements30 alerteAbonnements30 = new FrmAlerteAbonnements30(controle);
+            alerteAbonnements30.StartPosition = FormStartPosition.CenterParent;
+            alerteAbonnements30.ShowDialog();
+        }
+
 
         #region modules communs
 

@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="controleur\Controle.cs" />
     <Compile Include="metier\Abonnement.cs" />
+    <Compile Include="metier\Abonnement30.cs" />
     <Compile Include="metier\Commande.cs" />
     <Compile Include="metier\CommandeDocument.cs" />
     <Compile Include="metier\Dvd.cs" />
@@ -106,6 +107,12 @@
     <Compile Include="metier\Livre.cs" />
     <Compile Include="metier\Exemplaire.cs" />
     <Compile Include="metier\Revue.cs" />
+    <Compile Include="vue\FrmAlerteAbonnements30.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vue\FrmAlerteAbonnements30.Designer.cs">
+      <DependentUpon>FrmAlerteAbonnements30.cs</DependentUpon>
+    </Compile>
     <Compile Include="vue\FrmMediatek.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +131,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="vue\FrmAlerteAbonnements30.resx">
+      <DependentUpon>FrmAlerteAbonnements30.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="vue\FrmMediatek.resx">
       <DependentUpon>FrmMediatek.cs</DependentUpon>
     </EmbeddedResource>

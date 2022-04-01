@@ -515,5 +515,30 @@ namespace Mediatek86.modele
             }
         }
 
+        /// <summary>
+        /// Retourne la liste des abonnements qui expire dans moins de 30 jours
+        /// </summary>
+        /// <returns>Collection d'objets de type Abonnement30</returns>
+        public static List<Abonnement30> GetAbonnement30()
+        {
+            List<Abonnement30> lesAbonnement30 = new List<Abonnement30>();
+            string req = "call  abonnementsExp30()";
+
+            BddMySql curs = BddMySql.GetInstance(connectionString);
+            curs.ReqSelect(req, null);
+
+            while (curs.Read())
+            {
+                DateTime dateFinAbonnement = (DateTime)curs.Field("dateFinAbonnement");
+                string idRevue = (string)curs.Field("idRevue");
+                string titreRevue = (string)curs.Field("titre");
+
+                Abonnement30 abonnement30 = new Abonnement30(dateFinAbonnement, idRevue, titreRevue);
+                lesAbonnement30.Add(abonnement30);
+            }
+            curs.Close();
+            return lesAbonnement30;
+        }
+
     }
 }
