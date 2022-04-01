@@ -23,7 +23,7 @@ namespace Mediatek86.vue
             lesAbonnements30 = controle.GetAbonnement30();
             bdgAbonnements30.DataSource = lesAbonnements30;
             dgvAbonnements30Liste.DataSource = bdgAbonnements30;
-            dgvAbonnements30Liste.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvAbonnements30Liste.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvAbonnements30Liste.Columns["dateFinAbonnement"].DisplayIndex = 2;
             dgvAbonnements30Liste.Columns[0].HeaderCell.Value = "Date d'expiration";
             dgvAbonnements30Liste.Columns[1].HeaderCell.Value = "Numéro Revue";

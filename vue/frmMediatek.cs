@@ -165,7 +165,7 @@ namespace Mediatek86.vue
             dgvRevuesListe.Columns["idGenre"].Visible = false;
             dgvRevuesListe.Columns["idPublic"].Visible = false;
             dgvRevuesListe.Columns["image"].Visible = false;
-            dgvRevuesListe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvRevuesListe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvRevuesListe.Columns["id"].DisplayIndex = 0;
             dgvRevuesListe.Columns["titre"].DisplayIndex = 1;
         }
@@ -484,7 +484,7 @@ namespace Mediatek86.vue
             dgvLivresListe.Columns["idGenre"].Visible = false;
             dgvLivresListe.Columns["idPublic"].Visible = false;
             dgvLivresListe.Columns["image"].Visible = false;
-            dgvLivresListe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvLivresListe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvLivresListe.Columns["id"].DisplayIndex = 0;
             dgvLivresListe.Columns["titre"].DisplayIndex = 1;
         }
@@ -802,7 +802,7 @@ namespace Mediatek86.vue
             dgvDvdListe.Columns["idPublic"].Visible = false;
             dgvDvdListe.Columns["image"].Visible = false;
             dgvDvdListe.Columns["synopsis"].Visible = false;
-            dgvDvdListe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvDvdListe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDvdListe.Columns["id"].DisplayIndex = 0;
             dgvDvdListe.Columns["titre"].DisplayIndex = 1;
         }
@@ -1113,7 +1113,7 @@ namespace Mediatek86.vue
             dgvReceptionExemplairesListe.DataSource = bdgExemplairesListe;
             dgvReceptionExemplairesListe.Columns["idEtat"].Visible = false;
             dgvReceptionExemplairesListe.Columns["idDocument"].Visible = false;
-            dgvReceptionExemplairesListe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvReceptionExemplairesListe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvReceptionExemplairesListe.Columns["numero"].DisplayIndex = 0;
             dgvReceptionExemplairesListe.Columns["dateAchat"].DisplayIndex = 1;
         }
@@ -1479,7 +1479,7 @@ namespace Mediatek86.vue
         {
             bdgCommandesLivresListe.DataSource = lesCommandeDocument;
             dgvCommandeLivresListe.DataSource = bdgCommandesLivresListe;
-            dgvCommandeLivresListe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvCommandeLivresListe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCommandeLivresListe.Columns["id"].Visible = false;
             dgvCommandeLivresListe.Columns["idSuivi"].Visible = false;
             dgvCommandeLivresListe.Columns["idLivreDvd"].Visible = false;
@@ -1951,7 +1951,7 @@ namespace Mediatek86.vue
         {
             bdgCommandesDvdListe.DataSource = lesCommandeDocument;
             dgvCommandeDvdListe.DataSource = bdgCommandesDvdListe;
-            dgvCommandeDvdListe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvCommandeDvdListe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCommandeDvdListe.Columns["id"].Visible = false;
             dgvCommandeDvdListe.Columns["idSuivi"].Visible = false;
             dgvCommandeDvdListe.Columns["idLivreDvd"].Visible = false;
@@ -2416,7 +2416,7 @@ namespace Mediatek86.vue
         {
             bdgAbonnementRevuesListe.DataSource = lesAbonnements;
             dgvAbonnementRevuesListe.DataSource = bdgAbonnementRevuesListe;
-            dgvAbonnementRevuesListe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvAbonnementRevuesListe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvAbonnementRevuesListe.Columns["id"].Visible = false;
             dgvAbonnementRevuesListe.Columns["idRevue"].Visible = false;
             dgvAbonnementRevuesListe.Columns["dateCommande"].DisplayIndex = 0;
