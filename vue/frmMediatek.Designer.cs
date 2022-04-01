@@ -3599,9 +3599,9 @@ namespace Mediatek86.vue
             this.label102.Location = new System.Drawing.Point(12, 44);
             this.label102.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label102.Name = "label102";
-            this.label102.Size = new System.Drawing.Size(234, 26);
+            this.label102.Size = new System.Drawing.Size(248, 26);
             this.label102.TabIndex = 0;
-            this.label102.Text = "Numéro commande :";
+            this.label102.Text = "Numéro abonnement :";
             // 
             // FrmMediatek
             // 
@@ -3614,8 +3614,8 @@ namespace Mediatek86.vue
             this.Name = "FrmMediatek";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion Médiathèque";
-            this.Shown += new System.EventHandler(this.FrmMediatek_Shown);
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Shown += new System.EventHandler(this.FrmMediatek_Shown);
             this.tabOngletsApplication.ResumeLayout(false);
             this.tabLivres.ResumeLayout(false);
             this.grpLivresInfos.ResumeLayout(false);

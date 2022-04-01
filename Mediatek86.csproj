@@ -102,6 +102,7 @@
     <Compile Include="metier\LivreDvd.cs" />
     <Compile Include="metier\Public.cs" />
     <Compile Include="metier\Rayon.cs" />
+    <Compile Include="metier\Service.cs" />
     <Compile Include="metier\Suivi.cs" />
     <Compile Include="modele\Dao.cs" />
     <Compile Include="bdd\BddMySql.cs" />
@@ -115,6 +116,12 @@
     </Compile>
     <Compile Include="vue\FrmAlerteAbonnements30.Designer.cs">
       <DependentUpon>FrmAlerteAbonnements30.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vue\FrmAuthentification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vue\FrmAuthentification.Designer.cs">
+      <DependentUpon>FrmAuthentification.cs</DependentUpon>
     </Compile>
     <Compile Include="vue\FrmMediatek.cs">
       <SubType>Form</SubType>
@@ -136,6 +143,9 @@
     </Compile>
     <EmbeddedResource Include="vue\FrmAlerteAbonnements30.resx">
       <DependentUpon>FrmAlerteAbonnements30.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vue\FrmAuthentification.resx">
+      <DependentUpon>FrmAuthentification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="vue\FrmMediatek.resx">
       <DependentUpon>FrmMediatek.cs</DependentUpon>
