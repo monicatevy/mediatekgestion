@@ -6,6 +6,8 @@ using System.Drawing;
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Mediatek86.controleur
 {
@@ -18,6 +20,7 @@ namespace Mediatek86.controleur
         private readonly List<Categorie> lesPublics;
         private readonly List<Categorie> lesGenres;
         private readonly List<Suivi> lesSuivis;
+        public Service userService { get; private set; }
 
         /// <summary>
         /// Ouverture de la fenêtre
@@ -40,6 +43,41 @@ namespace Mediatek86.controleur
                 Application.Run(frmMediatek);
             }
 
+        }
+
+        /// <summary>
+        /// Récupère le service de l'utilisateur
+        /// </summary>
+        /// <param name="login">Login de l'utilisateur</param>
+        /// <param name="pwd">Mot de passe de l'utilisateur</param>
+        /// <returns>Service si authentification réussie, sinon retourne null</returns>
+        public Service Authentification(string login, string pwd)
+        {
+            Service service = Dao.Authentification(login, hashMD5(pwd));
+            userService = service;
+            return service;
+        }
+
+        /// <summary>
+        /// Calcul du hash à partir du mot de passe
+        /// </summary>
+        /// <param name="mdp">Mot de passe</param>
+        /// <returns>Mot de passe haché</returns>
+        public string hashMD5(string mdp)
+        {
+            using (MD5 md5 = MD5.Create())
+            {
+                byte[] inputBytes = Encoding.ASCII.GetBytes(mdp);
+                byte[] hashBytes = md5.ComputeHash(inputBytes);
+
+                // Conversion du vecteur vers un string hexadecimal
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < hashBytes.Length; i++)
+                {
+                    sb.Append(hashBytes[i].ToString("X2"));
+                }
+                return sb.ToString();
+            }
         }
 
         /// <summary>

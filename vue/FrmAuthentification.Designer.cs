@@ -65,15 +65,16 @@ namespace Mediatek86.vue
             // 
             this.txbPwd.Location = new System.Drawing.Point(241, 96);
             this.txbPwd.Name = "txbPwd";
+            this.txbPwd.PasswordChar = '*';
             this.txbPwd.Size = new System.Drawing.Size(380, 31);
             this.txbPwd.TabIndex = 3;
             this.txbPwd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txbPwd_KeyDown);
             // 
             // btnConnexion
             // 
-            this.btnConnexion.Location = new System.Drawing.Point(34, 177);
+            this.btnConnexion.Location = new System.Drawing.Point(34, 165);
             this.btnConnexion.Name = "btnConnexion";
-            this.btnConnexion.Size = new System.Drawing.Size(587, 64);
+            this.btnConnexion.Size = new System.Drawing.Size(587, 76);
             this.btnConnexion.TabIndex = 4;
             this.btnConnexion.Text = "Connexion";
             this.btnConnexion.UseVisualStyleBackColor = true;
