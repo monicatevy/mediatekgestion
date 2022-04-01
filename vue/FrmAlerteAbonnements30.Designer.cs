@@ -49,10 +49,13 @@ namespace Mediatek86.vue
             this.dgvAbonnements30Liste.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAbonnements30Liste.Location = new System.Drawing.Point(41, 89);
             this.dgvAbonnements30Liste.Name = "dgvAbonnements30Liste";
+            this.dgvAbonnements30Liste.RowHeadersVisible = false;
             this.dgvAbonnements30Liste.RowHeadersWidth = 82;
             this.dgvAbonnements30Liste.RowTemplate.Height = 33;
+            this.dgvAbonnements30Liste.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAbonnements30Liste.Size = new System.Drawing.Size(990, 462);
             this.dgvAbonnements30Liste.TabIndex = 1;
+            this.dgvAbonnements30Liste.TabStop = false;
             // 
             // FrmAlerteAbonnements30
             // 
