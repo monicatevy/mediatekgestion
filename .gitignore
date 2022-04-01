@@ -379,3 +379,6 @@ FodyWeavers.xsd
 .sonarlint/
 
 # End of https://www.toptal.com/developers/gitignore/api/sonarqube
+
+# script build sonarqube project
+sonar.bat
