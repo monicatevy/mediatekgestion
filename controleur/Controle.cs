@@ -158,7 +158,7 @@ namespace Mediatek86.controleur
         }
 
         /// <summary>
-        /// récupère les abonnements d'une revue
+        /// Récupère les abonnements d'une revue
         /// </summary>
         /// <returns>Collection d'objets Abonnement</returns>
         public List<Abonnement> GetAbonnement(string idDocument)
@@ -214,6 +214,15 @@ namespace Mediatek86.controleur
         public bool SupprAbonnement(string idAbonnement)
         {
             return Dao.SupprAbonnement(idAbonnement);
+        }
+
+        /// <summary>
+        /// Récupère les abonnements qui expirent dans moins de 30 jours
+        /// </summary>
+        /// <returns>Collection d'objets de type Abonnement</returns>
+        public List<Abonnement30> GetAbonnement30()
+        {
+            return Dao.GetAbonnement30();
         }
 
     }
