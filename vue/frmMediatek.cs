@@ -16,7 +16,8 @@ namespace Mediatek86.vue
 
         private readonly Controle controle;
         const string ETATNEUF = "00001";
-        
+        const string DOSSIERMEDIARECHERCHE = "c:\\MediatekMedia";
+
 
         private readonly BindingSource bdgLivresListe = new BindingSource();
         private readonly BindingSource bdgDvdListe = new BindingSource();
@@ -48,7 +49,7 @@ namespace Mediatek86.vue
             InitializeComponent();
             this.controle = controle;
 
-            if (controle.userService.Libelle == "prêt")
+            if (controle.UserService.Libelle == "prêt")
             {
                 tabOngletsApplication.TabPages.Remove(tabCommandeLivres);
                 tabOngletsApplication.TabPages.Remove(tabCommandeDVD);
@@ -65,9 +66,11 @@ namespace Mediatek86.vue
         /// <param name="e"></param>
         private void FrmMediatek_Shown(object sender, EventArgs e)
         {
-            if (controle.userService.Libelle != "prêt") {
-                FrmAlerteAbonnements30 alerteAbonnements30 = new FrmAlerteAbonnements30(controle);
-                alerteAbonnements30.StartPosition = FormStartPosition.CenterParent;
+            if (controle.UserService.Libelle != "prêt") {
+                FrmAlerteAbonnements30 alerteAbonnements30 = new FrmAlerteAbonnements30(controle)
+                {
+                    StartPosition = FormStartPosition.CenterParent
+                };
                 alerteAbonnements30.ShowDialog();
             }
         }
@@ -202,8 +205,10 @@ namespace Mediatek86.vue
                 Revue revue = lesRevues.Find(x => x.Id.Equals(txbRevuesNumRecherche.Text));
                 if (revue != null)
                 {
-                    List<Revue> revues = new List<Revue>();
-                    revues.Add(revue);
+                    List<Revue> revues = new List<Revue>
+                    {
+                        revue
+                    };
                     RemplirRevuesListe(revues);
                 }
                 else
@@ -839,8 +844,10 @@ namespace Mediatek86.vue
                 Dvd dvd = lesDvd.Find(x => x.Id.Equals(txbDvdNumRecherche.Text));
                 if (dvd != null)
                 {
-                    List<Dvd> Dvd = new List<Dvd>();
-                    Dvd.Add(dvd);
+                    List<Dvd> Dvd = new List<Dvd>
+                    {
+                        dvd
+                    };
                     RemplirDvdListe(Dvd);
                 }
                 else
@@ -1258,9 +1265,11 @@ namespace Mediatek86.vue
         private void btnReceptionExemplaireImage_Click(object sender, EventArgs e)
         {
             string filePath = "";
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = "c:\\";
-            openFileDialog.Filter = "Files|*.jpg;*.bmp;*.jpeg;*.png;*.gif";
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                InitialDirectory = DOSSIERMEDIARECHERCHE,
+                Filter = "Files|*.jpg;*.bmp;*.jpeg;*.png;*.gif"
+            };
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 filePath = openFileDialog.FileName;

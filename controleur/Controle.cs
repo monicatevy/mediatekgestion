@@ -20,7 +20,7 @@ namespace Mediatek86.controleur
         private readonly List<Categorie> lesPublics;
         private readonly List<Categorie> lesGenres;
         private readonly List<Suivi> lesSuivis;
-        public Service userService { get; private set; }
+        public Service UserService { get; private set; }
 
         /// <summary>
         /// Ouverture de la fenêtre
@@ -37,7 +37,7 @@ namespace Mediatek86.controleur
             
             FrmAuthentification authentification = new FrmAuthentification(this);
             Application.Run(authentification);
-            if (authentification.onSuccessAuth)
+            if (authentification.OnSuccessAuth)
             {
                 FrmMediatek frmMediatek = new FrmMediatek(this);
                 Application.Run(frmMediatek);
@@ -53,8 +53,8 @@ namespace Mediatek86.controleur
         /// <returns>Service si authentification réussie, sinon retourne null</returns>
         public Service Authentification(string login, string pwd)
         {
-            Service service = Dao.Authentification(login, hashMD5(pwd));
-            userService = service;
+            Service service = Dao.Authentification(login, HashMD5(pwd));
+            UserService = service;
             return service;
         }
 
@@ -63,7 +63,7 @@ namespace Mediatek86.controleur
         /// </summary>
         /// <param name="mdp">Mot de passe</param>
         /// <returns>Mot de passe haché</returns>
-        public string hashMD5(string mdp)
+        public string HashMD5(string mdp)
         {
             using (MD5 md5 = MD5.Create())
             {
