@@ -6,12 +6,22 @@ using System.Threading.Tasks;
 
 namespace Mediatek86.metier
 {
+    /// <summary>
+    /// Classe métier représentant la table Commande
+    /// Classe mère de : Abonnement, CommandeDocument
+    /// </summary>
     public class Commande
     {
         private readonly string id;
         private readonly DateTime dateCommande;
         private readonly Double montant;
 
+        /// <summary>
+        /// Constructeur : valorise les propriétés de la classe
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="dateCommande"></param>
+        /// <param name="montant"></param>
         public Commande(string id, DateTime dateCommande, double montant)
         {
             this.id = id;
@@ -19,8 +29,17 @@ namespace Mediatek86.metier
             this.montant = montant;
         }
 
+        /// <summary>
+        /// Getter sur l'identifiant de la commande
+        /// </summary>
         public string Id { get => id; }
+        /// <summary>
+        /// Getter sur la date de la commande
+        /// </summary>
         public DateTime DateCommande { get => dateCommande; }
+        /// <summary>
+        /// Getter sur le montant de la commande
+        /// </summary>
         public Double Montant { get => montant; }
     }
 }

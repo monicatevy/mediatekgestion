@@ -12,11 +12,19 @@ using Mediatek86.metier;
 
 namespace Mediatek86.vue
 {
+    /// <summary>
+    /// Vue d'alerte des abonnements qui expirent dans moins de 30 jours
+    /// </summary>
     public partial class FrmAlerteAbonnements30 : Form
     {
         private readonly BindingSource bdgAbonnements30 = new BindingSource();
         private readonly List<Abonnement30> lesAbonnements30;
 
+        /// <summary>
+        /// Constructeur : valorise la propriété contrôleur avec le contrôleur reçu en paramètre
+        /// Remplit le tableau des abonnements30
+        /// </summary>
+        /// <param name="controle"></param>
         public FrmAlerteAbonnements30(Controle controle)
         {
             InitializeComponent();
