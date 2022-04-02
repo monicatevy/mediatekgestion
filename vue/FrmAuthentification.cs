@@ -12,6 +12,9 @@ using Mediatek86.metier;
 
 namespace Mediatek86.vue
 {
+    /// <summary>
+    /// Vue pour l'authentification de l'utilisateur
+    /// </summary>
     public partial class FrmAuthentification : Form
     {
         private readonly Controle controle;
@@ -21,7 +24,10 @@ namespace Mediatek86.vue
         /// </summary>
         public bool OnSuccessAuth { get; private set; }
 
-
+        /// <summary>
+        /// Constructeur : initialise le composant et valorise la propriété contrôleur avec le contrôleur reçu en paramètre
+        /// </summary>
+        /// <param name="controle"></param>
         public FrmAuthentification(Controle controle)
         {
             InitializeComponent();

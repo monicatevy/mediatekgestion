@@ -6,6 +6,9 @@ using System.Windows.Forms;
 
 namespace Mediatek86.modele
 {
+    /// <summary>
+    /// Classe Dao (Data Access Object) qui envoie des requêtes à la base de données et récupère les réponses
+    /// </summary>
     public static class Dao
     {
 

@@ -9,6 +9,9 @@ using System.Globalization;
 
 namespace Mediatek86.vue
 {
+    /// <summary>
+    /// Vue principale de l'application
+    /// </summary>
     public partial class FrmMediatek : Form
     {
 
@@ -17,7 +20,6 @@ namespace Mediatek86.vue
         private readonly Controle controle;
         const string ETATNEUF = "00001";
         const string DOSSIERMEDIARECHERCHE = "c:\\MediatekMedia";
-
 
         private readonly BindingSource bdgLivresListe = new BindingSource();
         private readonly BindingSource bdgDvdListe = new BindingSource();
@@ -127,6 +129,15 @@ namespace Mediatek86.vue
         private bool ConfirmationSupprCommande()
         {
             return (MessageBox.Show("Etes-vous sûr de vouloir supprimer cette commande ?", "Confirmation de suppression", MessageBoxButtons.YesNo) == DialogResult.Yes);
+        }
+
+        /// <summary>
+        /// Affichage d'un MessageBox pour demander la confirmation de suppression d'un abonnement
+        /// </summary>
+        /// <returns>True si suppression confirmée</returns>
+        private bool ConfirmationSupprAbonnement()
+        {
+            return (MessageBox.Show("Etes-vous sûr de vouloir supprimer cet abonnement ?", "Confirmation de suppression", MessageBoxButtons.YesNo) == DialogResult.Yes);
         }
 
         /// <summary>
@@ -2393,7 +2404,7 @@ namespace Mediatek86.vue
         /// <summary>
         /// Affiche les informations de la revue
         /// </summary>
-        /// <param name="abonnement">Abonnement sélectionné</param>
+        /// <param name="revue">Revue sélectionné</param>
         private void AfficheAbonnementRevuesInfos(Revue revue)
         {
             // affiche les informations
@@ -2651,7 +2662,7 @@ namespace Mediatek86.vue
             if (controle.CheckSupprAbonnement(abonnement))
             {
                 // demande confirmation à l'utilisateur
-                if (ConfirmationSupprCommande())
+                if (ConfirmationSupprAbonnement())
                 {
                     // tente de supprimer
                     if (controle.SupprAbonnement(abonnement.Id))
