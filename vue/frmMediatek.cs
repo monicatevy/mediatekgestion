@@ -44,7 +44,7 @@ namespace Mediatek86.vue
         /// Restriction des fonctionnalités si l'utilisateur est du service Prêt
         /// </summary>
         /// <param name="controle"></param>
-        internal FrmMediatek(Controle controle)
+        public FrmMediatek(Controle controle)
         {
             InitializeComponent();
             this.controle = controle;
@@ -1639,6 +1639,7 @@ namespace Mediatek86.vue
                     dgvCommandeLivresListe.Rows[addedRowIndex].Selected = true;
 
                     AccesDetailsCommandeLivres(false);
+                    AfficheCommandeLivresDetails(laCommandeDocument);
                     AccesGestionCommandeLivres(true);
                 }
                 else
@@ -2121,6 +2122,7 @@ namespace Mediatek86.vue
                     dgvCommandeDvdListe.Rows[addedRowIndex].Selected = true;
 
                     AccesDetailsCommandeDvd(false);
+                    AfficheCommandeDvdDetails(laCommandeDocument);
                     AccesGestionCommandeDvd(true);
                 }
                 else
@@ -2618,6 +2620,7 @@ namespace Mediatek86.vue
                     dgvAbonnementRevuesListe.Rows[addedRowIndex].Selected = true;
 
                     AccesDetailsAbonnementRevues(false);
+                    AfficheAbonnementRevuesDetails(abonnement);
                     AccesGestionAbonnementRevues(true);
                 }
                 else
