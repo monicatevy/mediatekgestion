@@ -19,7 +19,7 @@ namespace Mediatek86.vue
         /// <summary>
         /// Booléen vérifie si l'authentification a réussi
         /// </summary>
-        public bool onSuccessAuth { get; private set; }
+        public bool OnSuccessAuth { get; private set; }
 
 
         public FrmAuthentification(Controle controle)
@@ -49,7 +49,7 @@ namespace Mediatek86.vue
                 }
                 else
                 {
-                    onSuccessAuth = true;
+                    OnSuccessAuth = true;
                     Close();
                 }
             }
