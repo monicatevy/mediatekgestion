@@ -1451,8 +1451,11 @@ namespace Mediatek86.vue
             // affiche la liste des commandes
             AfficheCommandeDocumentLivre();
 
-            // active la zone de gestion des commandes
-            AccesGestionCommandeLivres(true);
+            if(dgvCommandeLivresListe.RowCount != 0)
+            {
+                // active la zone de gestion des commandes
+                AccesGestionCommandeLivres(true);
+            }
         }
 
         /// <summary>
@@ -1932,8 +1935,11 @@ namespace Mediatek86.vue
             // affiche la liste des commandes
             AfficheCommandeDocumentDvd();
 
-            // active la zone de gestion des commandes
-            AccesGestionCommandeDvd(true);
+            if (dgvCommandeDvdListe.RowCount != 0)
+            {
+                // active la zone de gestion des commandes
+                AccesGestionCommandeDvd(true);
+            }
         }
 
         /// <summary>
@@ -2409,8 +2415,11 @@ namespace Mediatek86.vue
             // affiche la liste des commandes
             AfficheAbonnementRevues();
 
-            // active la zone de gestion des commandes
-            AccesGestionAbonnementRevues(true);
+            if(dgvAbonnementRevuesListe.RowCount != 0)
+            {
+                // active la zone de gestion des commandes
+                AccesGestionAbonnementRevues(true);
+            }
         }
 
         /// <summary>
