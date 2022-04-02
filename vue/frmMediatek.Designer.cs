@@ -238,7 +238,7 @@ namespace Mediatek86.vue
             this.label85 = new System.Windows.Forms.Label();
             this.dtpCommandeDvdDateCommande = new System.Windows.Forms.DateTimePicker();
             this.label86 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpDvdCommande = new System.Windows.Forms.GroupBox();
             this.txbCommandeDvdDuree = new System.Windows.Forms.TextBox();
             this.label58 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
@@ -264,7 +264,7 @@ namespace Mediatek86.vue
             this.label82 = new System.Windows.Forms.Label();
             this.btnCommandeDvdRechercher = new System.Windows.Forms.Button();
             this.tabAbonnementRevues = new System.Windows.Forms.TabPage();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.grpRevuesAbonnement = new System.Windows.Forms.GroupBox();
             this.chkAbonnementRevuesEmpruntable = new System.Windows.Forms.CheckBox();
             this.label105 = new System.Windows.Forms.Label();
             this.label90 = new System.Windows.Forms.Label();
@@ -337,11 +337,11 @@ namespace Mediatek86.vue
             this.grpGestionCommandeDvd.SuspendLayout();
             this.grpCommandeDvd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCommandeDvdExemplaires)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.grpDvdCommande.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbCommandeDvdImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCommandeDvdListe)).BeginInit();
             this.tabAbonnementRevues.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.grpRevuesAbonnement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAbonnementRevuesImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAbonnementRevuesListe)).BeginInit();
             this.grpGestionAbonnementRevues.SuspendLayout();
@@ -2601,7 +2601,7 @@ namespace Mediatek86.vue
             // 
             this.tabCommandeDVD.Controls.Add(this.grpGestionCommandeDvd);
             this.tabCommandeDVD.Controls.Add(this.grpCommandeDvd);
-            this.tabCommandeDVD.Controls.Add(this.groupBox1);
+            this.tabCommandeDVD.Controls.Add(this.grpDvdCommande);
             this.tabCommandeDVD.Location = new System.Drawing.Point(8, 26);
             this.tabCommandeDVD.Name = "tabCommandeDVD";
             this.tabCommandeDVD.Padding = new System.Windows.Forms.Padding(3);
@@ -2837,40 +2837,40 @@ namespace Mediatek86.vue
             this.label86.TabIndex = 0;
             this.label86.Text = "Numéro commande :";
             // 
-            // groupBox1
+            // grpDvdCommande
             // 
-            this.groupBox1.Controls.Add(this.txbCommandeDvdDuree);
-            this.groupBox1.Controls.Add(this.label58);
-            this.groupBox1.Controls.Add(this.label59);
-            this.groupBox1.Controls.Add(this.pcbCommandeDvdImage);
-            this.groupBox1.Controls.Add(this.label73);
-            this.groupBox1.Controls.Add(this.dgvCommandeDvdListe);
-            this.groupBox1.Controls.Add(this.txbCommandeDvdImage);
-            this.groupBox1.Controls.Add(this.txbCommandeDvdRayon);
-            this.groupBox1.Controls.Add(this.txbCommandeDvdPublic);
-            this.groupBox1.Controls.Add(this.txbCommandeDvdGenre);
-            this.groupBox1.Controls.Add(this.txbCommandeDvdSynopsis);
-            this.groupBox1.Controls.Add(this.txbCommandeDvdRealisateur);
-            this.groupBox1.Controls.Add(this.txbCommandeDvdTitre);
-            this.groupBox1.Controls.Add(this.txbCommandeDvdNumero);
-            this.groupBox1.Controls.Add(this.label74);
-            this.groupBox1.Controls.Add(this.label75);
-            this.groupBox1.Controls.Add(this.label76);
-            this.groupBox1.Controls.Add(this.label77);
-            this.groupBox1.Controls.Add(this.label78);
-            this.groupBox1.Controls.Add(this.label79);
-            this.groupBox1.Controls.Add(this.label80);
-            this.groupBox1.Controls.Add(this.label81);
-            this.groupBox1.Controls.Add(this.label82);
-            this.groupBox1.Controls.Add(this.btnCommandeDvdRechercher);
-            this.groupBox1.Location = new System.Drawing.Point(16, 25);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox1.Size = new System.Drawing.Size(1718, 694);
-            this.groupBox1.TabIndex = 18;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Recherche DVD";
+            this.grpDvdCommande.Controls.Add(this.txbCommandeDvdDuree);
+            this.grpDvdCommande.Controls.Add(this.label58);
+            this.grpDvdCommande.Controls.Add(this.label59);
+            this.grpDvdCommande.Controls.Add(this.pcbCommandeDvdImage);
+            this.grpDvdCommande.Controls.Add(this.label73);
+            this.grpDvdCommande.Controls.Add(this.dgvCommandeDvdListe);
+            this.grpDvdCommande.Controls.Add(this.txbCommandeDvdImage);
+            this.grpDvdCommande.Controls.Add(this.txbCommandeDvdRayon);
+            this.grpDvdCommande.Controls.Add(this.txbCommandeDvdPublic);
+            this.grpDvdCommande.Controls.Add(this.txbCommandeDvdGenre);
+            this.grpDvdCommande.Controls.Add(this.txbCommandeDvdSynopsis);
+            this.grpDvdCommande.Controls.Add(this.txbCommandeDvdRealisateur);
+            this.grpDvdCommande.Controls.Add(this.txbCommandeDvdTitre);
+            this.grpDvdCommande.Controls.Add(this.txbCommandeDvdNumero);
+            this.grpDvdCommande.Controls.Add(this.label74);
+            this.grpDvdCommande.Controls.Add(this.label75);
+            this.grpDvdCommande.Controls.Add(this.label76);
+            this.grpDvdCommande.Controls.Add(this.label77);
+            this.grpDvdCommande.Controls.Add(this.label78);
+            this.grpDvdCommande.Controls.Add(this.label79);
+            this.grpDvdCommande.Controls.Add(this.label80);
+            this.grpDvdCommande.Controls.Add(this.label81);
+            this.grpDvdCommande.Controls.Add(this.label82);
+            this.grpDvdCommande.Controls.Add(this.btnCommandeDvdRechercher);
+            this.grpDvdCommande.Location = new System.Drawing.Point(16, 25);
+            this.grpDvdCommande.Margin = new System.Windows.Forms.Padding(6);
+            this.grpDvdCommande.Name = "grpDvdCommande";
+            this.grpDvdCommande.Padding = new System.Windows.Forms.Padding(6);
+            this.grpDvdCommande.Size = new System.Drawing.Size(1718, 694);
+            this.grpDvdCommande.TabIndex = 18;
+            this.grpDvdCommande.TabStop = false;
+            this.grpDvdCommande.Text = "Recherche DVD";
             // 
             // txbCommandeDvdDuree
             // 
@@ -3129,7 +3129,7 @@ namespace Mediatek86.vue
             // 
             // tabAbonnementRevues
             // 
-            this.tabAbonnementRevues.Controls.Add(this.groupBox4);
+            this.tabAbonnementRevues.Controls.Add(this.grpRevuesAbonnement);
             this.tabAbonnementRevues.Controls.Add(this.grpGestionAbonnementRevues);
             this.tabAbonnementRevues.Controls.Add(this.grpAbonnementRevues);
             this.tabAbonnementRevues.Location = new System.Drawing.Point(8, 26);
@@ -3141,40 +3141,40 @@ namespace Mediatek86.vue
             this.tabAbonnementRevues.UseVisualStyleBackColor = true;
             this.tabAbonnementRevues.Enter += new System.EventHandler(this.tabAbonnementRevues_Enter);
             // 
-            // groupBox4
+            // grpRevuesAbonnement
             // 
-            this.groupBox4.Controls.Add(this.chkAbonnementRevuesEmpruntable);
-            this.groupBox4.Controls.Add(this.label105);
-            this.groupBox4.Controls.Add(this.label90);
-            this.groupBox4.Controls.Add(this.pcbAbonnementRevuesImage);
-            this.groupBox4.Controls.Add(this.label91);
-            this.groupBox4.Controls.Add(this.dgvAbonnementRevuesListe);
-            this.groupBox4.Controls.Add(this.txbAbonnementRevuesImage);
-            this.groupBox4.Controls.Add(this.txbAbonnementRevuesRayon);
-            this.groupBox4.Controls.Add(this.txbAbonnementRevuesPublic);
-            this.groupBox4.Controls.Add(this.txbAbonnementRevuesGenre);
-            this.groupBox4.Controls.Add(this.txbAbonnementRevuesDelai);
-            this.groupBox4.Controls.Add(this.txbAbonnementRevuesPeriodicite);
-            this.groupBox4.Controls.Add(this.txbAbonnementRevuesTitre);
-            this.groupBox4.Controls.Add(this.txbAbonnementRevuesNumero);
-            this.groupBox4.Controls.Add(this.label92);
-            this.groupBox4.Controls.Add(this.label93);
-            this.groupBox4.Controls.Add(this.label94);
-            this.groupBox4.Controls.Add(this.label95);
-            this.groupBox4.Controls.Add(this.label96);
-            this.groupBox4.Controls.Add(this.label97);
-            this.groupBox4.Controls.Add(this.label98);
-            this.groupBox4.Controls.Add(this.label103);
-            this.groupBox4.Controls.Add(this.label104);
-            this.groupBox4.Controls.Add(this.btnAbonnementRevuesRechercher);
-            this.groupBox4.Location = new System.Drawing.Point(16, 25);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(6);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox4.Size = new System.Drawing.Size(1718, 694);
-            this.groupBox4.TabIndex = 25;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Recherche Revue";
+            this.grpRevuesAbonnement.Controls.Add(this.chkAbonnementRevuesEmpruntable);
+            this.grpRevuesAbonnement.Controls.Add(this.label105);
+            this.grpRevuesAbonnement.Controls.Add(this.label90);
+            this.grpRevuesAbonnement.Controls.Add(this.pcbAbonnementRevuesImage);
+            this.grpRevuesAbonnement.Controls.Add(this.label91);
+            this.grpRevuesAbonnement.Controls.Add(this.dgvAbonnementRevuesListe);
+            this.grpRevuesAbonnement.Controls.Add(this.txbAbonnementRevuesImage);
+            this.grpRevuesAbonnement.Controls.Add(this.txbAbonnementRevuesRayon);
+            this.grpRevuesAbonnement.Controls.Add(this.txbAbonnementRevuesPublic);
+            this.grpRevuesAbonnement.Controls.Add(this.txbAbonnementRevuesGenre);
+            this.grpRevuesAbonnement.Controls.Add(this.txbAbonnementRevuesDelai);
+            this.grpRevuesAbonnement.Controls.Add(this.txbAbonnementRevuesPeriodicite);
+            this.grpRevuesAbonnement.Controls.Add(this.txbAbonnementRevuesTitre);
+            this.grpRevuesAbonnement.Controls.Add(this.txbAbonnementRevuesNumero);
+            this.grpRevuesAbonnement.Controls.Add(this.label92);
+            this.grpRevuesAbonnement.Controls.Add(this.label93);
+            this.grpRevuesAbonnement.Controls.Add(this.label94);
+            this.grpRevuesAbonnement.Controls.Add(this.label95);
+            this.grpRevuesAbonnement.Controls.Add(this.label96);
+            this.grpRevuesAbonnement.Controls.Add(this.label97);
+            this.grpRevuesAbonnement.Controls.Add(this.label98);
+            this.grpRevuesAbonnement.Controls.Add(this.label103);
+            this.grpRevuesAbonnement.Controls.Add(this.label104);
+            this.grpRevuesAbonnement.Controls.Add(this.btnAbonnementRevuesRechercher);
+            this.grpRevuesAbonnement.Location = new System.Drawing.Point(16, 25);
+            this.grpRevuesAbonnement.Margin = new System.Windows.Forms.Padding(6);
+            this.grpRevuesAbonnement.Name = "grpRevuesAbonnement";
+            this.grpRevuesAbonnement.Padding = new System.Windows.Forms.Padding(6);
+            this.grpRevuesAbonnement.Size = new System.Drawing.Size(1718, 694);
+            this.grpRevuesAbonnement.TabIndex = 25;
+            this.grpRevuesAbonnement.TabStop = false;
+            this.grpRevuesAbonnement.Text = "Recherche Revue";
             // 
             // chkAbonnementRevuesEmpruntable
             // 
@@ -3661,13 +3661,13 @@ namespace Mediatek86.vue
             this.grpCommandeDvd.ResumeLayout(false);
             this.grpCommandeDvd.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCommandeDvdExemplaires)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpDvdCommande.ResumeLayout(false);
+            this.grpDvdCommande.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbCommandeDvdImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCommandeDvdListe)).EndInit();
             this.tabAbonnementRevues.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.grpRevuesAbonnement.ResumeLayout(false);
+            this.grpRevuesAbonnement.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAbonnementRevuesImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAbonnementRevuesListe)).EndInit();
             this.grpGestionAbonnementRevues.ResumeLayout(false);
@@ -3871,7 +3871,7 @@ namespace Mediatek86.vue
         private System.Windows.Forms.DateTimePicker dtpCommandeLivresDateCommande;
         private System.Windows.Forms.Label label89;
         private System.Windows.Forms.TabPage tabCommandeDVD;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpDvdCommande;
         private System.Windows.Forms.TextBox txbCommandeDvdDuree;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label59;
@@ -3914,7 +3914,7 @@ namespace Mediatek86.vue
         private System.Windows.Forms.Button btnCommandeDvdAjouter;
         private System.Windows.Forms.Button btnCommandeDvdRelancer;
         private System.Windows.Forms.TabPage tabAbonnementRevues;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox grpRevuesAbonnement;
         private System.Windows.Forms.Label label90;
         private System.Windows.Forms.PictureBox pcbAbonnementRevuesImage;
         private System.Windows.Forms.Label label91;
