@@ -4,6 +4,7 @@ using Mediatek86.bdd;
 using System;
 using System.Windows.Forms;
 
+//// <summary> Classe modèle </summary>
 namespace Mediatek86.modele
 {
     /// <summary>
@@ -12,9 +13,9 @@ namespace Mediatek86.modele
     public static class Dao
     {
 
-        private static readonly string server = "localhost";
-        private static readonly string userid = "root";
-        private static readonly string password = "";
+        private static readonly string server = "mediatekgestionserveur.mysql.database.azure.com";
+        private static readonly string userid = "mediatekadmin";
+        private static readonly string password = "Gestion@86";
         private static readonly string database = "mediatek86";
         private static readonly string connectionString = "server="+server+";user id="+userid+";password="+password+";database="+database+";SslMode=none";
 
