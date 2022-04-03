@@ -1684,12 +1684,14 @@ namespace Mediatek86.vue
                 if (ConfirmationAnnulationCommande())
                 {
                     AccesDetailsCommandeLivres(false);
+                    AfficheCommandeDocumentLivre();
                     AccesGestionCommandeLivres(true);
                 }
             }
             else
             {
                 AccesDetailsCommandeLivres(false);
+                AfficheCommandeDocumentLivre();
                 AccesGestionCommandeLivres(true);
             }
         }
@@ -2167,12 +2169,14 @@ namespace Mediatek86.vue
                 if (ConfirmationAnnulationCommande())
                 {
                     AccesDetailsCommandeDvd(false);
+                    AfficheCommandeDocumentDvd();
                     AccesGestionCommandeDvd(true);
                 }
             }
             else
             {
                 AccesDetailsCommandeDvd(false);
+                AfficheCommandeDocumentDvd();
                 AccesGestionCommandeDvd(true);
             }
         }
@@ -2697,12 +2701,14 @@ namespace Mediatek86.vue
                 if (ConfirmationAnnulationCommande())
                 {
                     AccesDetailsAbonnementRevues(false);
+                    AfficheAbonnementRevues();
                     AccesGestionAbonnementRevues(true);
                 }
             }
             else
             {
                 AccesDetailsAbonnementRevues(false);
+                AfficheAbonnementRevues();
                 AccesGestionAbonnementRevues(true);
             }
         }
