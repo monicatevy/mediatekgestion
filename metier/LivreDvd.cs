@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//// <summary> Classe métier </summary>
 namespace Mediatek86.metier
 {
     /// <summary>
