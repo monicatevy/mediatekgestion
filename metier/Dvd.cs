@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//// <summary> Classe métier </summary>
 namespace Mediatek86.metier
 {
     /// <summary>
@@ -12,7 +13,6 @@ namespace Mediatek86.metier
     /// </summary>
     public class Dvd : LivreDvd
     {
-
         private readonly int duree;
         private readonly string realisateur;
         private readonly string synopsis;

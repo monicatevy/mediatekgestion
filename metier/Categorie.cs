@@ -1,5 +1,5 @@
 ﻿
-
+//// <summary> Classe métier </summary>
 namespace Mediatek86.metier
 {
     /// <summary>
