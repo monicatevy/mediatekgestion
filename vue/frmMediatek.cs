@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Globalization;
 
+//// <summary> Vues de l'application </summary>
 namespace Mediatek86.vue
 {
     /// <summary>
@@ -537,8 +538,10 @@ namespace Mediatek86.vue
                 Livre livre = lesLivres.Find(x => x.Id.Equals(txbLivresNumRecherche.Text));
                 if (livre != null)
                 {
-                    List<Livre> livres = new List<Livre>();
-                    livres.Add(livre);
+                    List<Livre> livres = new List<Livre>
+                    {
+                        livre
+                    };
                     RemplirLivresListe(livres);
                 }
                 else

@@ -10,8 +10,6 @@ namespace Mediatek86
 {
     static class Program
     {
-        const string DOSSIERLOGS = "C:\\Users\\Monica Tevy Sen\\Desktop\\Atelier C#\\logs";
-
         /// <summary>
         /// Point d'entrée principal de l'application.
         /// </summary>
@@ -23,7 +21,7 @@ namespace Mediatek86
 
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Information()
-                .WriteTo.File(DOSSIERLOGS+"\\log.txt", rollingInterval: RollingInterval.Day)
+                .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
 
             new Controle();

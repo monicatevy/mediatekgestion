@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Security.Cryptography;
 using System.Text;
 
+//// <summary> Contrôleur de l'application </summary>
 namespace Mediatek86.controleur
 {
     /// <summary>

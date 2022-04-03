@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Serilog;
 
+//// <summary> Connexion à et interactions avec la base de données </summary>
 namespace Mediatek86.bdd
 {
     /// <summary>
