@@ -19,22 +19,22 @@ namespace SpecFlowMediaTek86.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("AjoutCommandeLivre", Description="\tRecherche de livre par son numéro et ajout d\'une commande ", SourceFile="Features\\AjoutCommandeLivre.feature", SourceLine=0)]
-    public partial class AjoutCommandeLivreFeature
+    [TechTalk.SpecRun.FeatureAttribute("RechercheLivreNumero", Description="\tTest sur la recherche d\'un document par son numéro", SourceFile="Features\\RechercheLivreNumero.feature", SourceLine=0)]
+    public partial class RechercheLivreNumeroFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "AjoutCommandeLivre.feature"
+#line 1 "RechercheLivreNumero.feature"
 #line hidden
         
         [TechTalk.SpecRun.FeatureInitialize()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "AjoutCommandeLivre", "\tRecherche de livre par son numéro et ajout d\'une commande ", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "RechercheLivreNumero", "\tTest sur la recherche d\'un document par son numéro", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -70,14 +70,14 @@ namespace SpecFlowMediaTek86.Features
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Chercher un livre puis lui ajouter une commande", new string[] {
-                "ajoutCommandeLivre"}, SourceLine=4)]
-        public virtual void ChercherUnLivrePuisLuiAjouterUneCommande()
+        [TechTalk.SpecRun.ScenarioAttribute("Chercher un livre par son numero", new string[] {
+                "rechercheLivreNumero"}, SourceLine=4)]
+        public virtual void ChercherUnLivreParSonNumero()
         {
             string[] tagsOfScenario = new string[] {
-                    "ajoutCommandeLivre"};
+                    "rechercheLivreNumero"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Chercher un livre puis lui ajouter une commande", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Chercher un livre par son numero", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -99,28 +99,13 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 6
- testRunner.Given("Je saisie la valeur 00014", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("Je saisis la valeur 00014", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 7
- testRunner.And("Je clique sur le bouton Rechercher", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("Je clic sur le bouton Rechercher", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 8
- testRunner.And("Je clique sur le bouton Ajouter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 9
- testRunner.And("Je saisie le numéro de commande MOKO", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 10
- testRunner.And("Je saisie le nombre d\'exemplaire à 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 11
- testRunner.And("Je saisie le montant à 26", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 12
- testRunner.When("Je clique sur le bouton Valider", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 13
- testRunner.Then("Le détail de la commande doit afficher le numéro de commande MOKO", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Les informations détaillées doivent afficher le titre Mauvaise étoile", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

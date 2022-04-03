@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Mediatek86.controleur;
 using Mediatek86.metier;
 
+//// <summary> Vues de l'application </summary>
 namespace Mediatek86.vue
 {
     /// <summary>
